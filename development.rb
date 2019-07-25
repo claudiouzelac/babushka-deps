@@ -32,6 +32,7 @@ dep "shenderson terminal" do
 end
 
 dep "mozilla devops" do
+    requires "git.managed"
     requires "homebrew"
     requires "homebrew cask"
     requires "aws-vault.cask"
@@ -41,6 +42,7 @@ dep "mozilla devops" do
 end
 
 dep "mozilla subhub" do
+  requires "git.managed"
   requires "homebrew"
   requires "python"
   requires "stripe-mock.managed"
