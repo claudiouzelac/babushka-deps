@@ -1,4 +1,5 @@
 dep "pycharm.cask"
+dep "pyenv.managed" do installs 'pyenv' end
 
 dep 'python.managed' do
     requires { on :osx, 'homebrew' }
@@ -8,6 +9,7 @@ end
 dep 'python' do
     requires [
         'python.managed',
-        'pycharm.cask'
+        'pycharm.cask',
+        'pyenv.managed'
     ]
 end
