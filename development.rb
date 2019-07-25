@@ -2,7 +2,10 @@
 dep "stripe-mock.managed" do provides "stripe-mock" end
 dep "node.managed" do provides "node" end
 dep "yarn.managed" do provides "yarn" end
-dep "graphviz.managed" do provides "graphviz" end
+dep "graphviz.managed" do
+    met? { in_path? "dot" }
+    provides "graphviz"
+end
 dep "cloc.managed" do provides "cloc" end
 
 # Mozilla Native
