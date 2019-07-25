@@ -21,7 +21,7 @@ end
 class CaskHelper < Babushka::BrewHelper
   class << self
     def pkg_cmd; 'brew cask' end
-    def manager_dep; 'icelab:homebrew cask' end
+    def manager_dep; 'personal:homebrew cask' end
     def pkg_type; :cask end
     def manager_key; :cask end
 
