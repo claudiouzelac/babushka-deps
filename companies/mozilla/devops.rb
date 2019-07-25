@@ -1,7 +1,7 @@
 # Mozilla DevOp
 dep "aws-vault.cask"
 dep "minikube.cask"
-dep "awscli.managed" do provides "zsh" end
+dep "awscli.managed" do provides "aws" end
 dep "gnupg.managed" do
     met? { in_path? "gpg" }
     provides "gnupg"
