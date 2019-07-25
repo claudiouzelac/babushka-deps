@@ -17,6 +17,7 @@ dep "zsh.managed" do provides "zsh" end
 
 # Mozilla DevOp
 dep "aws-vault.cask"
+dep "minikube.cask"
 dep "awscli.managed" do provides "zsh" end
 dep "gnupg.managed" do
     met? { in_path? "gpg" }
@@ -36,6 +37,7 @@ dep "mozilla devops" do
     requires "aws-vault.cask"
     requires "awscli.managed"
     requires "gnupg.managed"
+    requires "minikube.cask"
 end
 
 dep "mozilla subhub" do
@@ -64,12 +66,3 @@ end
 dep "mozilla native" do
     requires "cmake.managed"
 end
-
-# dep "kubectl.managed" do
-#     provides "kubectl"
-# end
-
-# dep "mozilla kubernetes" do
-#     requires "kubectl.managed",
-#              "minikube.cask"
-# end
