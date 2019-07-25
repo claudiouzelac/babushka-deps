@@ -6,6 +6,8 @@ dep 'python.managed' do
 end
 
 dep 'python' do
-    requires 'python.managed',
-             'pycharm.cask'
+    requires [
+        'python.managed',
+        'pycharm.cask'
+    ]
 end
