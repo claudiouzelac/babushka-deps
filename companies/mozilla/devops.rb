@@ -10,7 +10,7 @@ end
 dep 'papertrail.gem' do
     installs 'papertrail == 0.9.14'
     provides 'papertrail'
-  end
+end
 
 dep "mozilla devops" do
     requires [
