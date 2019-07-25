@@ -1,0 +1,44 @@
+# Disable bash history
+export HISTFILE=/dev/null
+
+# c = clear
+alias c='clear'
+
+# Colorize ls
+alias ls='ls -ltra'
+
+# Directory movements
+alias ..='cd ..'
+
+# Prefer vim
+alias vi=vim
+alias edit='vim'
+
+# Show open ports
+alias ports='netstat -tulan'
+
+# Hard drive health
+alias df='df -H'
+
+# Reload .bashrc file
+alias r='bashrc-reload() { builtin exec bash ; }'
+
+# Server the current directory
+alias serve='python -m SimpleHTTPServer'
+
+# Mounts in a decent format
+alias m='mount | column -t'
+
+# Get current IP address
+alias ip='curl ifconfig.me'
+
+# Close shell and keep subprocesses alive
+alias e='disown -a && exit'
+
+# ASCII table
+alias a='man ascii'
+
+alias r='reset'
+
+# Open finder in the current terminal location
+alias o='open .'

@@ -27,8 +27,6 @@ end
 dep "shenderson terminal" do
     requires "homebrew"
     requires "bash.managed"
-    requires "zsh.managed"
-    requires "shenderson dotfiles"
 end
 
 dep "mozilla devops" do

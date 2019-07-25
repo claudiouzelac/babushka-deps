@@ -10,14 +10,14 @@ end
   
 dep 'git_configured', :git_username, :git_email do
     git_username.default('Stewart Henderson')
-    git_email.default('henderson.geoffrey@gmail.com')
+    git_email.default('shenderson@mozilla.com')
   
     def bashconfig
       '~/.gitconfig'
     end
   
     def up_to_date? dest
-      source = '../../../configs/gitconfig.erb'
+      source = 'gitconfig.erb'
       if dest.p.exists?
         true
       else
