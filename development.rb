@@ -1,9 +1,9 @@
-# brew managed
-
 # Mozilla Subhub
 dep "stripe-mock.managed" do provides "stripe-mock" end
 dep "node.managed" do provides "node" end
 dep "yarn.managed" do provides "yarn" end
+dep "graphviz.managed" do provides "graphviz" end
+dep "cloc.managed" do provides "cloc" end
 
 # Mozilla Native
 dep "cmake.managed" do provides "cmake" end
@@ -15,6 +15,10 @@ dep "zsh.managed" do provides "zsh" end
 # Mozilla DevOp
 dep "aws-vault.cask"
 dep "awscli.managed" do provides "zsh" end
+dep "gnupg.managed" do
+    met? { in_path? "gpg" }
+    provides "gnupg"
+end
 
 dep "shenderson terminal" do
     requires "homebrew"
@@ -28,6 +32,7 @@ dep "mozilla devops" do
     requires "homebrew cask"
     requires "aws-vault.cask"
     requires "awscli.managed"
+    requires "gnupg.managed"
 end
 
 dep "mozilla subhub" do
@@ -36,6 +41,8 @@ dep "mozilla subhub" do
   requires "stripe-mock.managed"
   requires "node.managed"
   requires "yarn.managed"
+  requires "graphviz.managed"
+  requires "cloc.managed"
   requires "repository".with  :path => "~/workspace/subhub",
     :url => "git@github.com:mozilla/subhub.git",
     :branch => "master"
