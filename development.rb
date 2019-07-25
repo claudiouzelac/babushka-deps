@@ -1,17 +1,37 @@
+# brew managed
+
+# Mozilla Subhub
 dep "stripe-mock.managed" do provides "stripe-mock" end
-dep "cmake.managed" do provides "cmake" end
 dep "node.managed" do provides "node" end
 dep "yarn.managed" do provides "yarn" end
+
+# Mozilla Native
+dep "cmake.managed" do provides "cmake" end
+
+# Terminal     
 dep "bash.managed" do provides "bash" end
 dep "zsh.managed" do provides "zsh" end
 
+# Mozilla DevOp
+dep "aws-vault.cask"
+dep "awscli.managed" do provides "zsh" end
+
 dep "shenderson terminal" do
+    requires "homebrew"
     requires "bash.managed"
     requires "zsh.managed"
     requires "shenderson dotfiles"
 end
 
+dep "mozilla devops" do
+    requires "homebrew"
+    requires "homebrew cask"
+    requires "aws-vault.cask"
+    requires "awscli.managed"
+end
+
 dep "mozilla subhub" do
+  requires "homebrew"
   requires "python"
   requires "stripe-mock.managed"
   requires "node.managed"
