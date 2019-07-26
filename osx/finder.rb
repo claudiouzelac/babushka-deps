@@ -1,71 +1,75 @@
 dep 'allow-quit-in-finder' do
     shell('defaults write com.apple.finder QuitMenuItem -bool false')
-  end
+end
   
-  dep 'limit-search-scope-to-finder-location' do
+dep 'limit-search-scope-to-finder-location' do
     shell('defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"')
-  end
+end
   
-  dep 'show-folder-path-in-finder' do
+dep 'show-folder-path-in-finder' do
     shell('defaults write com.apple.finder ShowPathbar -bool true')
     shell('defaults write com.apple.finder _FXShowPosixPathInTitle -bool true')
-  end
+end
   
-  dep 'open-finder-on-new-mounts' do
+dep 'open-finder-on-new-mounts' do
     shell('defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true')
     shell('defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true')
     shell('defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true')
-  end
+end
   
-  dep 'show-mounts-on-desktop' do
+dep 'show-mounts-on-desktop' do
     shell('defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true')
     shell('defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true')
     shell('defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true')
     shell('defaults write com.apple.finder ShowMountedServersOnDesktop -bool true')
-  end
+end
   
-  dep 'show-hard-drives-on-desktop' do
+dep 'show-hard-drives-on-desktop' do
     shell('defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true')
-  end
+end
   
-  dep 'disable-warn-on-trash-empty' do
+dep 'disable-warn-on-trash-empty' do
     shell('defaults write com.apple.finder WarnOnEmptyTrash -bool false')
-  end
+end
   
-  dep 'show-all-files-in-folder' do
+dep 'show-all-files-in-folder' do
     shell('defaults write com.apple.Finder AppleShowAllFiles YES')
-  end
+end
+
+dep 'show-hidden-files' do
+  shell('defaults write com.apple.finder AppleShowAllFiles -bool true')
+  shell('chflags nohidden ~/Library')
+end
   
-  
-  dep 'disable-warns-on-file-extension-changes' do
+dep 'disable-warns-on-file-extension-changes' do
     shell('defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false')
-  end
+end
   
-  dep 'securely-empty-trash' do
+dep 'securely-empty-trash' do
     shell('defaults write com.apple.finder EmptyTrashSecurely -bool true')
-  end
+end
   
-  dep 'avoid-ds-store-creation-on-nextwork-volumes' do
+dep 'avoid-ds-store-creation-on-nextwork-volumes' do
     shell('defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true')
-  end
+end
   
-  dep 'open-on-home-directory' do
+dep 'open-on-home-directory' do
     shell('defaults write com.apple.finder NewWindowTarget PfHm')
-  end
+end
   
-  dep 'prefer-list-view' do
+dep 'prefer-list-view' do
     shell('defaults write com.apple.finder FXPreferredViewStyle Nlsv')
-  end
+end
   
-  dep('show-all-filename-extensions') {
+dep('show-all-filename-extensions') {
     shell('defaults write NSGlobalDomain AppleShowAllExtensions -bool true')
-  }
+}
   
-  dep('disable-all-animations') {
+dep('disable-all-animations') {
     shell('defaults write com.apple.finder DisableAllAnimations -bool true')
-  }
+}
   
-  dep('configure_finder') {
+dep('configure_finder') {
     requires %w(
                 allow-quit-in-finder
                 limit-search-scope-to-finder-location
