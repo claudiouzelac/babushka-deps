@@ -1,3 +1,5 @@
+eval "$(pyenv init -)"
+
 # Disable bash history
 export HISTFILE=/dev/null
 
@@ -45,3 +47,6 @@ alias o='open .'
 
 # Papertrail alias courtesy of https://github.com/papertrail/papertrail-cli README.md file
 alias pt=papertrail
+
+# AWS Login
+alias awslogin=aws-vault login mozilla-itsre-admin
