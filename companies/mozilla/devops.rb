@@ -18,6 +18,11 @@ dep 'papertrail.gem' do
     provides 'papertrail'
 end
 
+dep 'travis.gem' do
+    installs 'travis == 1.8.10'
+    provides 'travis'
+end
+
 dep "mozilla devops" do
     requires [
         "git.managed",
@@ -28,6 +33,7 @@ dep "mozilla devops" do
         "aws-sam-cli.managed",
         "gnupg.managed",
         "minikube.cask",
-        "papertrail.gem"
+        "papertrail.gem",
+        "travis.gem"
     ]
 end
