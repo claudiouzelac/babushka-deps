@@ -32,6 +32,7 @@ dep "mozilla devops" do
         "awscli.managed",
         "aws-sam-cli.managed",
         "gnupg.managed",
+        "jq.managed",
         "minikube.cask",
         "papertrail.gem",
         "travis.gem"
