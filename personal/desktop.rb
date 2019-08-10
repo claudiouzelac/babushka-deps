@@ -1,13 +1,17 @@
 dep "flux.cask"
 dep "signal.cask"
+dep "spideroakone.cask"
 dep "mas.managed"
+
+# NOTE: Requires MAS above.
 dep("wunderlist.appstore") { id "410628904" }
 
 dep "shenderson desktop" do
     requires [
         "flux.cask",
         "signal.cask",
-        "wunderlist.appstore"
+        "spideroakone.cask",
+        "wunderlist.appstore",
     ]
 end
 
