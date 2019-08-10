@@ -8,11 +8,19 @@ dep 'python.managed' do
     installs 'python'
 end
 
+dep "pip" do
+    met? { in_path? "pip" }
+    meet {
+        shell("curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && sudo python get-pip.py")
+    }
+end
+
 dep 'python' do
     requires [
         'python.managed',
         'pycharm.cask',
         'pyenv.managed',
-        'pipenv.managed'
+        'pipenv.managed',
+        'pip'
     ]
 end
