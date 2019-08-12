@@ -1,5 +1,13 @@
 # Mozilla Native
 dep "cmake.managed" do provides "cmake" end
+dep "yasm.managed" do provides "yasm" end
+dep "mercurial.managed" do provides "mercurial" end
+dep "gawk.managed" do provides "gawk" end
+dep "ccache.managed" do provides "ccache" end
+dep "autoconf.managed" do provides "autoconf" end
+dep "libidl.managed" do provides "libidl" end
+dep "mas.managed"
+dep("xcode.appstore") { id "97799835" }
 
 dep "gdb.managed" do 
     provides "gdb" 
@@ -14,17 +22,6 @@ dep "gdbinit" do
     }
 end
 
-# Reference: https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Introduction
-
-dep "workspace" do
-    met? {
-        "~/workspace".p.exists?
-    }
-    meet {
-        shell("mkdir -p ~/workspace")
-    }    
-end
-
 dep "mozilla workspace" do 
     met? {
         "~/workspace/mozilla".p.exists?
@@ -34,12 +31,20 @@ dep "mozilla workspace" do
     }
 end
 
-dep "mozilla firefox directory" do
+dep "mozilla get firefox" do
     met? {
         "~/workspace/mozilla/firefox".p.exists?
     }
     meet {
-        shell("mkdir -p ~/workspace/mozilla/firefox")
+        shell("mkdir -p ~/workspace/mozilla/firefox && cd ~/workspace/mozilla/firefox && curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py -o bootstrap.py && python bootstrap.py --vcs=git")
+    }
+end
+
+# https://apps.apple.com/us/app/xcode/id497799835?mt=12
+dep "pip" do
+    met? { in_path? "pip" }
+    meet {
+        shell("curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && sudo python get-pip.py")
     }
 end
 
@@ -70,9 +75,14 @@ dep "mozilla native" do
     requires [
         "cmake.managed",
         "python",
-        "workspace",
+        "yasm.managed",
+        # "mercurial.managed",
+        "gawk.managed",
+        "ccache.managed",
+        "autoconf.managed",
+        # "libidl.managed",
         "mozilla workspace",
-        "mozilla firefox directory",
+        "mozilla get firefox",
         "gdb.managed",
         "gdbui",
         "gdbinit"
