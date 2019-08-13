@@ -1,0 +1,33 @@
+function aws-vault() {
+    local aws_vault_cmd=$(which aws-vault)
+ 
+    if [ -z "${aws_vault_cmd}" ]; then
+        echo "aws-vault is not on your path you do not have it installed"
+        exit 1
+    fi
+    case "$1" in
+        exec)
+            local action=$1
+            shift 1
+            local profile=$1
+            shift 1
+            local options="--assume-role-ttl=1h --session-ttl=4h"
+            ${aws_vault_cmd} ${action} ${profile} ${options} $@
+        ;;
+        *)
+            ${aws_vault_cmd} $@
+        ;;
+    esac
+}
+
+# AWS Login
+alias awsbrowser='aws-vault login mozilla-itsre-admin'
+
+# AWS Browser
+alias awslogin='aws-vault exec mozilla-itsre-admin'
+
+# AWS Debugging
+alias awsinitproject='sam init --runtime python3.7'
+
+# AWS Environment Dump
+alias awsenv='env | grep AWS'
