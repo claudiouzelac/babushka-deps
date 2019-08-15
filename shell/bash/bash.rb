@@ -4,10 +4,10 @@ dep('.bashrc') {
     end
   
     met? {
-      Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bashrc.erb')
+      Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.erb')
     }
     meet {
-      render_erb 'bashrc.erb', :to => config_file
+      render_erb '~/.babushka/deps/shell/bash/bashrc.erb', :to => config_file
     }
   }
 
@@ -26,7 +26,7 @@ dep('version.bash') {
     end
   
     met? {
-      Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bashrc.d/version.bash.erb')
+      Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/version.bash.erb')
     }
     meet {
       render_erb 'bashrc.d/version.bash.erb', :to => config_file
@@ -39,7 +39,7 @@ dep('aws.bash') {
     end
   
     met? {
-      Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bashrc.d/aws.bash.erb')
+      Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/aws.bash.erb')
     }
     meet {
       render_erb 'bashrc.d/aws.bash.erb', :to => config_file
@@ -52,7 +52,7 @@ dep('serverless.bash') {
   end
 
   met? {
-    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bashrc.d/serverless.bash.erb')
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/serverless.bash.erb')
   }
   meet {
     render_erb 'bashrc.d/serverless.bash.erb', :to => config_file
@@ -65,7 +65,7 @@ dep('subhub.bash') {
   end
 
   met? {
-    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bashrc.d/subhub.bash.erb')
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/subhub.bash.erb')
   }
   meet {
     render_erb 'bashrc.d/subhub.bash.erb', :to => config_file
@@ -78,7 +78,7 @@ dep('papertrail.bash') {
   end
 
   met? {
-    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bashrc.d/papertrail.bash.erb')
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/papertrail.bash.erb')
   }
   meet {
     render_erb 'bashrc.d/papertrail.bash.erb', :to => config_file

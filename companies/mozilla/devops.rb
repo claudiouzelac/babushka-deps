@@ -8,6 +8,7 @@ dep("aws-sam-cli.managed") {
 
 dep "minikube.cask"
 dep "awscli.managed" do provides "aws" end
+dep "serverless.managed"
 dep "gnupg.managed" do
     met? { in_path? "gpg" }
     provides "gnupg"
@@ -35,6 +36,7 @@ dep "mozilla devops" do
         "jq.managed",
         "minikube.cask",
         "papertrail.gem",
-        "travis.gem"
+        "travis.gem",
+        "serverless",
     ]
 end

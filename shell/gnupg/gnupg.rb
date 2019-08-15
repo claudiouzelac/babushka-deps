@@ -18,9 +18,9 @@ dep 'gpg_configuration' do
     end
   
     met? {
-      Babushka::Renderable.new(config_file).from?('gnupg/gnupg.conf.erb')
+      Babushka::Renderable.new(config_file).from?('shell/gnupg/gnupg.conf.erb')
     }
     meet {
-      render_erb 'gnupg.conf.erb', :to => config_file
+      render_erb 'shell/gnupg/gnupg.conf.erb', :to => config_file
     }
 end

@@ -1,6 +1,10 @@
+# Cask dependencies
 dep "flux.cask"
 dep "signal.cask"
 dep "spideroakone.cask"
+dep "anki.cask"
+
+# AppStore Dependencies
 dep "mas.managed"
 
 # NOTE: Requires MAS above.
@@ -12,6 +16,7 @@ dep "shenderson desktop" do
         "signal.cask",
         "spideroakone.cask",
         "wunderlist.appstore",
+        "anki.cask"
     ]
 end
 

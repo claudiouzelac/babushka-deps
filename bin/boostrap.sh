@@ -16,3 +16,5 @@ command -v curl >/dev/null 2>&1 || {
 command -v babushka >/dev/null 2>&1 || { 
     sh -c "`curl https://babushka.me/up`"
 }
+
+babushka meet ""

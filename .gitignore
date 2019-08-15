@@ -1,2 +1,5 @@
 # Python Scripts
 *.py
+
+# OSX
+.DS_Store
