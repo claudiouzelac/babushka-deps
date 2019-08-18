@@ -11,6 +11,19 @@ dep('.bashrc') {
     }
   }
 
+dep('.bash_profile') {
+  def config_file
+    '~/.bash_profile'
+  end
+  
+  met? {
+    Babushka::Renderable.new(config_file).from?('./shell/bash/bash_profile.erb')
+  }
+  meet {
+    render_erb 'bash_profile.erb', :to => config_file
+  }
+}
+
 dep "bashrc.d" do 
     met? {
         "~/.bashrc.d".p.exists?
@@ -88,6 +101,7 @@ dep('papertrail.bash') {
 dep 'bash' do
   requires [
     '.bashrc',
+    '.bash_profile',
     'bashrc.d',
     'aws.bash',
     'version.bash',

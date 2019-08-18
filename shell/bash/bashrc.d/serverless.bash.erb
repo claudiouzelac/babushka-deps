@@ -1,4 +1,6 @@
 # Debug Serverless Deployments
 export SLS_DEBUG=*
 
-alias deploy='serverless package --stage dev -v'
+alias spackage='serverless package --stage dev -v'
+alias sdeploy='serverless deploy --stage dev --aws-s3-accelerate -v'
+alias soffline='serverless offline start'
