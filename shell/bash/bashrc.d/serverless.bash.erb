@@ -1,6 +1,22 @@
+# Serverless Command Line
+# Author: Stewart Henderson
+
 # Debug Serverless Deployments
 export SLS_DEBUG=*
 
-alias spackage='serverless package --stage dev -v'
-alias sdeploy='serverless deploy --stage dev --aws-s3-accelerate -v'
-alias soffline='serverless offline start'
+# Packaging requires you to be in the directory with 
+# the serverless.yaml file.  This could be made a function 
+# at some point to check for such a thing.  The `DEPLOY_ENV` 
+# here is assigned by the file `subhub.bash.erb` and in the case
+# this fails for any reason, it is defaulted to `dev`.
+alias serverless_package='serverless package --stage "${DEPLOY_ENV:-dev}" -v'
+
+# Deploying requires you to be in the directory with 
+# the serverless.yaml file.  This could be made a function 
+# at some point to check for such a thing.
+alias serverless_deploy='serverless deploy --stage dev --aws-s3-accelerate -v'
+
+# Offline requires you to be in the directory with 
+# the serverless.yaml file.  This could be made a function 
+# at some point to check for such a thing.
+alias serverless_offline='serverless offline start'
