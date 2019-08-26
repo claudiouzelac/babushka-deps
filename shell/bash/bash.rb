@@ -98,6 +98,19 @@ dep('papertrail.bash') {
   }
 }
 
+dep('docker.bash') {
+  def config_file
+    '~/.bashrc.d/papertrail.bash'
+  end
+
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/docker.bash.erb')
+  }
+  meet {
+    render_erb 'bashrc.d/docker.bash.erb', :to => config_file
+  }
+}
+
 dep 'bash' do
   requires [
     '.bashrc',
@@ -107,6 +120,7 @@ dep 'bash' do
     'version.bash',
     'serverless.bash',
     'subhub.bash',
-    'papertrail.bash'
+    'papertrail.bash',
+    'docker.bash'
   ]
 end
