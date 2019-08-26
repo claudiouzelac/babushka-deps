@@ -66,6 +66,7 @@
     dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
     # Reset to a specified remote branch
+    # `git resetToOriginBranch BRANCH_NAME`
     resetToOriginBranch="!fn() { git reset --hard origin/$1 }"
 
     # List contributors with number of commits
