@@ -3,6 +3,7 @@ dep "flux.cask"
 dep "signal.cask"
 dep "spideroakone.cask"
 dep "anki.cask"
+dep "folx.cask"
 
 # AppStore Dependencies
 dep "mas.managed"
@@ -16,7 +17,8 @@ dep "shenderson desktop" do
         "signal.cask",
         "spideroakone.cask",
         "wunderlist.appstore",
-        "anki.cask"
+        "anki.cask",
+        "folx.cask"
     ]
 end
 
