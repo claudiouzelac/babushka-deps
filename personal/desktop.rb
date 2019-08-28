@@ -4,6 +4,7 @@ dep "signal.cask"
 dep "spideroakone.cask"
 dep "anki.cask"
 dep "folx.cask"
+dep "evernote.cask"
 
 # AppStore Dependencies
 dep "mas.managed"
@@ -18,7 +19,8 @@ dep "shenderson desktop" do
         "spideroakone.cask",
         "wunderlist.appstore",
         "anki.cask",
-        "folx.cask"
+        "folx.cask",
+        "evernote.cask"
     ]
 end
 
