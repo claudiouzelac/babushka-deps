@@ -5,6 +5,9 @@ dep "spideroakone.cask"
 dep "anki.cask"
 dep "folx.cask"
 dep "evernote.cask"
+dep "librecad.cask"
+dep "gimp.cask"
+dep "charles.cask"
 
 # AppStore Dependencies
 dep "mas.managed"
@@ -20,7 +23,10 @@ dep "shenderson desktop" do
         "wunderlist.appstore",
         "anki.cask",
         "folx.cask",
-        "evernote.cask"
+        "evernote.cask",
+        "librecad.cask",
+        "gimp.cask",
+        "charles.cask"
     ]
 end
 
