@@ -126,11 +126,20 @@ dep('gpg.bash') {
   }
 }
 
-# dep('gpg.bashed') {
-#   requires "bashrcd".with  
-#       :source_path => "~/.babushka/deps/shell/bash/bashrc.d/gpg.bash.erb"
-#       :destination_path => "~/.bashrc.d/rust.bash"
-# }
+dep('ruby.bash') {
+  def config_file
+    '~/.bashrc.d/ruby.bash'
+  end
+
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/ruby.bash.erb')
+  }
+  meet {
+    log "rendering bashrc.d/ruby.bash.erb to #{config_file}" do
+      render_erb 'bashrc.d/ruby.bash.erb', :to => config_file    
+    end
+  }
+}
 
 dep 'bash' do
   requires [
@@ -143,7 +152,7 @@ dep 'bash' do
     'subhub.bash',
     'papertrail.bash',
     'docker.bash',
-    'rust.bash',
-    'gpg.bash'
+    'gpg.bash',
+    'ruby.bash'
   ]
 end
