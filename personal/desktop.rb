@@ -8,6 +8,7 @@ dep "evernote.cask"
 dep "librecad.cask"
 dep "gimp.cask"
 dep "charles.cask"
+dep "caffeine.cask"
 
 # AppStore Dependencies
 dep "mas.managed"
@@ -42,7 +43,7 @@ meta :appstore do
         }
         installed_ids.include?(id)
       end
-  
+
       met? {
         installed = false
         5.times do |i|
@@ -51,7 +52,7 @@ meta :appstore do
         end
         installed
       }
-  
+
       meet {
         log_shell "Installing #{name} via Mac App Store", "mas install #{id}"
       }

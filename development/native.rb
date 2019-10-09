@@ -1,5 +1,6 @@
 # Mozilla Native
 dep "cmake.managed" do provides "cmake" end
+dep "clang-format.managed" do provides "clang-format" end
 dep "yasm.managed" do provides "yasm" end
 dep "mercurial.managed" do provides "mercurial" end
 dep "gawk.managed" do provides "gawk" end
