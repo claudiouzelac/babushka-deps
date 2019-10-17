@@ -9,12 +9,28 @@ dep "librecad.cask"
 dep "gimp.cask"
 dep "charles.cask"
 dep "caffeine.cask"
+dep "rescuetime.cask"
 
 # AppStore Dependencies
 dep "mas.managed"
 
 # NOTE: Requires MAS above.
 dep("wunderlist.appstore") { id "410628904" }
+
+# Wakatime download
+dep 'wakatime.pip' do
+  installs 'wakatime'
+end
+
+dep "wakatime" do
+  # Babushka will pull the source from here, and save it in
+  # ~/.babushka/src for later (i.e. it only ever downloads once).
+  # If the protocol is git:// then babushka will clone/update the
+  # repo as required, and for all other protocols, it defers to
+  # `curl`. Hence, babushka can handle any URI curl can, plus git://.
+  source "https://github.com/gjsheep/bash-wakatime.git"
+  # https://wakatime.com/terminal
+end
 
 dep "shenderson desktop" do
     requires [
@@ -27,7 +43,9 @@ dep "shenderson desktop" do
         "evernote.cask",
         "librecad.cask",
         "gimp.cask",
-        "charles.cask"
+        "charles.cask",
+        "rescuetime.cask",
+        "wakatime.pip"
     ]
 end
 
