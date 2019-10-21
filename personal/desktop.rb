@@ -10,6 +10,16 @@ dep "gimp.cask"
 dep "charles.cask"
 dep "caffeine.cask"
 dep "rescuetime.cask"
+dep "quartz.cask"
+
+# MacTex
+# https://tex.stackexchange.com/questions/97183/what-are-the-practical-differences-between-installing-latex-from-mactex-or-macpo
+# brew install Caskroom/cask/mactex
+dep "mactex.cask"
+
+# Veracrypt
+#   https://formulae.brew.sh/cask/veracrypt
+dep "veracrypt.cask"
 
 # AppStore Dependencies
 dep "mas.managed"
@@ -39,13 +49,13 @@ dep "shenderson desktop" do
         "spideroakone.cask",
         "wunderlist.appstore",
         "anki.cask",
-        "folx.cask",
         "evernote.cask",
         "librecad.cask",
         "gimp.cask",
         "charles.cask",
-        "rescuetime.cask",
-        "wakatime.pip"
+        "wakatime.pip",
+        "mactext.cask",
+        "veracrypt.cask"
     ]
 end
 
