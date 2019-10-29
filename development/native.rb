@@ -9,6 +9,7 @@ dep "autoconf.managed" do provides "autoconf" end
 dep "libidl.managed" do provides "libidl" end
 dep "mas.managed"
 dep("xcode.appstore") { id "97799835" }
+dep "llvm.managed"
 
 dep "gdb.managed" do
     provides "gdb"
@@ -66,6 +67,7 @@ dep "mozilla native" do
         # "libidl.managed",
         "gdb.managed",
         "gdbui",
-        "gdbinit"
+        "gdbinit",
+        "llvm.managed"
     ]
 end

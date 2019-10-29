@@ -72,6 +72,19 @@ dep('serverless.bash') {
   }
 }
 
+dep('python.bash') {
+  def config_file
+    '~/.bashrc.d/python.bash'
+  end
+
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/python.bash.erb')
+  }
+  meet {
+    render_erb 'bashrc.d/python.bash.erb', :to => config_file
+  }
+}
+
 dep('subhub.bash') {
   def config_file
     '~/.bashrc.d/subhub.bash'
@@ -170,5 +183,6 @@ dep 'bash' do
     'gpg.bash',
     'ruby.bash',
     'rust.bash',
+    'python.bash',
   ]
 end
