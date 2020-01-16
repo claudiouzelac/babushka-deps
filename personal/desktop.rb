@@ -42,6 +42,9 @@ dep "wakatime" do
   # https://wakatime.com/terminal
 end
 
+dep "ntfs-3g.managed"
+dep "osxfuse.cask"
+
 dep "shenderson desktop" do
     requires [
         "flux.cask",
@@ -54,8 +57,9 @@ dep "shenderson desktop" do
         "gimp.cask",
         "charles.cask",
         "wakatime.pip",
-        "mactext.cask",
-        "veracrypt.cask"
+        "veracrypt.cask",
+        "osxfuse.cask",
+        "ntfs-3g.managed"
     ]
 end
 
