@@ -1,5 +1,4 @@
 # Mozilla Subhub
-dep "stripe-mock.managed" do provides "stripe-mock" end
 dep "node.managed" do provides "node" end
 dep "yarn.managed" do provides "yarn" end
 dep "graphviz.managed" do

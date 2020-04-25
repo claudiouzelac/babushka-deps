@@ -1,8 +1,5 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH"
-
-# Add `/usr/local/sbin` to the `$PATH`
-export PATH="$PATH:/usr/local/sbin"
+# Initialize Ruby version
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh

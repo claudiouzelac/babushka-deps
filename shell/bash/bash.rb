@@ -2,7 +2,7 @@ dep('.bashrc') {
     def config_file
       '~/.bashrc'
     end
-  
+
     met? {
       Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.erb')
     }
@@ -15,7 +15,7 @@ dep('.bash_profile') {
   def config_file
     '~/.bash_profile'
   end
-  
+
   met? {
     Babushka::Renderable.new(config_file).from?('./shell/bash/bash_profile.erb')
   }
@@ -24,7 +24,7 @@ dep('.bash_profile') {
   }
 }
 
-dep "bashrc.d" do 
+dep "bashrc.d" do
     met? {
         "~/.bashrc.d".p.exists?
     }
@@ -37,7 +37,7 @@ dep('version.bash') {
     def config_file
       '~/.bashrc.d/version.bash'
     end
-  
+
     met? {
       Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/version.bash.erb')
     }
@@ -50,7 +50,7 @@ dep('aws.bash') {
     def config_file
       '~/.bashrc.d/aws.bash'
     end
-  
+
     met? {
       Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/aws.bash.erb')
     }
@@ -69,6 +69,19 @@ dep('serverless.bash') {
   }
   meet {
     render_erb 'bashrc.d/serverless.bash.erb', :to => config_file
+  }
+}
+
+dep('python.bash') {
+  def config_file
+    '~/.bashrc.d/python.bash'
+  end
+
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/python.bash.erb')
+  }
+  meet {
+    render_erb 'bashrc.d/python.bash.erb', :to => config_file
   }
 }
 
@@ -111,6 +124,51 @@ dep('docker.bash') {
   }
 }
 
+dep('gpg.bash') {
+  def config_file
+    '~/.bashrc.d/rust.bash'
+  end
+
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/gpg.bash.erb')
+  }
+  meet {
+    log "rendering bashrc.d/gpg.bash.erb to #{config_file}" do
+      render_erb 'bashrc.d/gpg.bash.erb', :to => config_file
+    end
+  }
+}
+
+dep('ruby.bash') {
+  def config_file
+    '~/.bashrc.d/ruby.bash'
+  end
+
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/ruby.bash.erb')
+  }
+  meet {
+    log "rendering bashrc.d/ruby.bash.erb to #{config_file}" do
+      render_erb 'bashrc.d/ruby.bash.erb', :to => config_file
+    end
+  }
+}
+
+dep('rust.bash') {
+  def config_file
+    '~/.bashrc.d/ruby.bash'
+  end
+
+  met? {
+    Babushka::Renderable.new(config_file).from?('~/.babushka/deps/shell/bash/bashrc.d/rust.bash.erb')
+  }
+  meet {
+    log "rendering bashrc.d/rust.bash.erb to #{config_file}" do
+      render_erb 'bashrc.d/rust.bash.erb', :to => config_file
+    end
+  }
+}
+
 dep 'bash' do
   requires [
     '.bashrc',
@@ -121,6 +179,10 @@ dep 'bash' do
     'serverless.bash',
     'subhub.bash',
     'papertrail.bash',
-    'docker.bash'
+    'docker.bash',
+    'gpg.bash',
+    'ruby.bash',
+    'rust.bash',
+    'python.bash',
   ]
 end

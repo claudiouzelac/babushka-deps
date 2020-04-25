@@ -8,12 +8,42 @@ dep "evernote.cask"
 dep "librecad.cask"
 dep "gimp.cask"
 dep "charles.cask"
+dep "caffeine.cask"
+dep "rescuetime.cask"
+dep "quartz.cask"
+
+# MacTex
+# https://tex.stackexchange.com/questions/97183/what-are-the-practical-differences-between-installing-latex-from-mactex-or-macpo
+# brew install Caskroom/cask/mactex
+dep "mactex.cask"
+
+# Veracrypt
+#   https://formulae.brew.sh/cask/veracrypt
+dep "veracrypt.cask"
 
 # AppStore Dependencies
 dep "mas.managed"
 
 # NOTE: Requires MAS above.
 dep("wunderlist.appstore") { id "410628904" }
+
+# Wakatime download
+dep 'wakatime.pip' do
+  installs 'wakatime'
+end
+
+dep "wakatime" do
+  # Babushka will pull the source from here, and save it in
+  # ~/.babushka/src for later (i.e. it only ever downloads once).
+  # If the protocol is git:// then babushka will clone/update the
+  # repo as required, and for all other protocols, it defers to
+  # `curl`. Hence, babushka can handle any URI curl can, plus git://.
+  source "https://github.com/gjsheep/bash-wakatime.git"
+  # https://wakatime.com/terminal
+end
+
+dep "ntfs-3g.managed"
+dep "osxfuse.cask"
 
 dep "shenderson desktop" do
     requires [
@@ -22,11 +52,14 @@ dep "shenderson desktop" do
         "spideroakone.cask",
         "wunderlist.appstore",
         "anki.cask",
-        "folx.cask",
         "evernote.cask",
         "librecad.cask",
         "gimp.cask",
-        "charles.cask"
+        "charles.cask",
+        "wakatime.pip",
+        "veracrypt.cask",
+        "osxfuse.cask",
+        "ntfs-3g.managed"
     ]
 end
 
@@ -42,7 +75,7 @@ meta :appstore do
         }
         installed_ids.include?(id)
       end
-  
+
       met? {
         installed = false
         5.times do |i|
@@ -51,7 +84,7 @@ meta :appstore do
         end
         installed
       }
-  
+
       meet {
         log_shell "Installing #{name} via Mac App Store", "mas install #{id}"
       }
