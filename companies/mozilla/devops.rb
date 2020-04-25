@@ -1,5 +1,4 @@
 # Mozilla DevOp
-dep "aws-vault.cask"
 
 dep("aws-sam-cli.managed") {
     met? { in_path? "sam" }
@@ -29,7 +28,6 @@ dep "mozilla devops" do
         "git.managed",
         "homebrew",
         "homebrew cask",
-        "aws-vault.cask",
         "awscli.managed",
         "aws-sam-cli.managed",
         "gnupg.managed",
