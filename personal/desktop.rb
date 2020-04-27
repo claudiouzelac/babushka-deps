@@ -5,32 +5,18 @@ dep "spideroakone.cask"
 dep "anki.cask"
 dep "folx.cask"
 dep "evernote.cask"
-dep "librecad.cask"
-dep "gimp.cask"
-dep "charles.cask"
-dep "caffeine.cask"
-dep "rescuetime.cask"
 dep "quartz.cask"
-
-# MacTex
-# https://tex.stackexchange.com/questions/97183/what-are-the-practical-differences-between-installing-latex-from-mactex-or-macpo
-# brew install Caskroom/cask/mactex
-dep "mactex.cask"
-
-# Veracrypt
-#   https://formulae.brew.sh/cask/veracrypt
-dep "veracrypt.cask"
 
 # AppStore Dependencies
 dep "mas.managed"
 
+# FLow Pomodoro Timer
 # NOTE: Requires MAS above.
-dep("wunderlist.appstore") { id "410628904" }
+# https://apps.apple.com/app/id1423210932
+dep("flow.appstore") { id "1423210932" }
 
 # Wakatime download
-dep 'wakatime.pip' do
-  installs 'wakatime'
-end
+dep 'wakatime.pip3'
 
 dep "wakatime" do
   # Babushka will pull the source from here, and save it in
@@ -50,16 +36,12 @@ dep "shenderson desktop" do
         "flux.cask",
         "signal.cask",
         "spideroakone.cask",
-        "wunderlist.appstore",
         "anki.cask",
         "evernote.cask",
-        "librecad.cask",
-        "gimp.cask",
-        "charles.cask",
-        "wakatime.pip",
-        "veracrypt.cask",
+        "wakatime.pip3",
         "osxfuse.cask",
-        "ntfs-3g.managed"
+        "ntfs-3g.managed",
+        "flow.appstore"
     ]
 end
 
