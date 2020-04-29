@@ -30,6 +30,7 @@ end
 
 dep "ntfs-3g.managed"
 dep "osxfuse.cask"
+dep "brave-browser.cask"
 
 dep "shenderson desktop" do
     requires [
@@ -41,7 +42,8 @@ dep "shenderson desktop" do
         "wakatime.pip3",
         "osxfuse.cask",
         "ntfs-3g.managed",
-        "flow.appstore"
+        "flow.appstore",
+        "brave-browser.cask"
     ]
 end
 
