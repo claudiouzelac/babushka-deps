@@ -20,9 +20,8 @@ dep 'wakatime' do
   # https://wakatime.com/terminal
 end
 
-dep 'ntfs-3g.managed'
-dep 'osxfuse.cask'
 dep 'brave-browser.cask'
+dep 'jumpcut.cask'
 
 dep 'shenderson desktop' do
   requires [
@@ -32,8 +31,7 @@ dep 'shenderson desktop' do
     'anki.cask',
     'evernote.cask',
     'wakatime.pip3',
-    'osxfuse.cask',
-    'ntfs-3g.managed',
-    'brave-browser.cask'
+    'brave-browser.cask',
+    'jumpcut.cask'
   ]
 end
